@@ -103,4 +103,5 @@ cd /Users/sergey/Documents/Study/КГУ/KGU_Web_Project_django
 git commit -am "Add apps directory"
 5.3) пушим на удаленный репозиторий в ветку master
 git push KGU_Web_Project_django master
+6) еще раз запускаем (п. 11) 
 
