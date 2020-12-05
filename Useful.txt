@@ -1,0 +1,96 @@
+Основы git.
+1. Скачайте гит для своей версии ОС и установите его 
+https://git-scm.com/download/win
+
+2. Запустите git cmd и настройте параметры пользователя командами: 
+git config --global user.name "Ваше_Имя"
+git config --global user.email Ваша_Электронная_Почта
+
+3. Выберете проект, с которым будем работать. 
+
+4. Откройте GIT Bash и перейдите в каталог, где находится ваш проект: 
+cd C:/Users/Админ/Desktop/test\ project/
+
+5. Затем, для инициализации гит в папке проекта, выполните:
+git init 
+git add .
+
+6. Для того, чтобы сделать свой первый коммит выполните:
+git commit -am “Ваш комментарий”
+Например: git commit -am "Init"
+
+7. Зарегистрируйтесь на сайте https://gitlab.com/ и создайте удалённый репозиторий (желающие могут использовать github)
+Для создания репозитория нужно кликнуть на зелёную кнопку «new project»
+Затем вписать название проекта и выбрать настройку «публичныый»
+
+8. Для подключения будем использовать ssh. Для того, чтобы его сгенерировать, запустите консоль git и выполните команду (в кавычках нужно указать свой почтовый ящик): 
+ssh-keygen -t rsa -b 2048 -C "email@example.com"
+
+После выполнения команды, несколько раз нажимаем enter, или ввести ключевое слово для шифрования. 
+После успешного выполнения, будет создана пара ключей в папке пользователя ОС (C:/Users/ваш_пользователь/.ssh)
+В ней будет 2 текстовых файла ключей, публичный и приватный. Публичный добавляем на сайт в поле «ключ» (github, gitlab). 
+Приватный не трогаем и никому не показываем. На сайте можно настроить подпись ключа и срок его действия.
+
+9. Запустите git bash:
+git remote add <shortname> <url> 
+git push <shortname> master
+Где <url> - ссылка на удалённый репозиторий, а <shortname> имя проекта, которого делаем коммит.
+После выполнения, система запросит ввести в форму данные своей учётной записи. 
+Пример:
+git remote add KGU_Web_Project_django https://gitlab.com/denis.karandashev/kgu_web_project_django
+git push KGU_Web_Project_django master
+
+
+10. Посмотрите изменения на сайте в созданном репозитории.
+
+11. Для того, чтобы скопировать себе проект из удалённого репозитория используется команда clone, например: 
+git clone https://github.com/schacon/ticgit
+
+
+Мои действия:
+1. Создать папку проекта, назвать django_site
+2. cd /Users/sergey/Documents/Study/КГУ/django_site
+3. django-admin startproject mysite
+Проверяем, создалась ли подпапка mysite с вложенными файлами.
+4. cd /Users/sergey/Documents/Study/КГУ/django_site/mysite
+5. python3 manage.py runserver  
+6. python3 manage.py migrate (если потребуется)
+7. python3 manage.py startapp blog 
+Проверяем, создалась ли подпапка blog с вложенными файлами.
+
+8. В папке blog создаем файл urls.py:
+from django.urls import path
+from django.conf.urls import url
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+
+9. В папке blog в файл views.py вносим изменения:
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def index(request) :
+    return HttpResponse("Это работает!")
+
+10. В папке blog в файл urls.py вносим изменения:
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
+]
+
+
+
+
+  from django.contrib import adminfrom django.urls import path, includeurlpatterns = [    path('admin/', admin.site.urls),    path('blog/', include('blog.urls')),]
+ from django.urls import pathfrom django.conf.urls import urlfrom . import viewsurlpatterns = [    path('', views.index, name='index'),] 
+От Александр Лисицин – Все: (7:03 PM)
+ from django.shortcuts import renderfrom django.http import HttpResponsedef index(request) :    return HttpResponse("Моё сообщение") 
+http://127.0.0.1:8000/blog/
+
+От Александр Лисицин – Все: (7:07 PM)
+ import os, sysPROJECT_ROOT = os.path.dirname(__file__)sys.path.insert(0, os.path.join(PROJECT_ROOT, 'app'))
