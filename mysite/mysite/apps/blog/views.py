@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(request) :
     return HttpResponse("Это работает!")
+
+def second(request) :
+    return HttpResponse("Это тоже работает!")

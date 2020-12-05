@@ -93,8 +93,21 @@ urlpatterns = [
 1) создадим новую директорию apps:
 mysite/mysite/apps
 2) перенесем туда уже созданные приложения (у нас это blog)
-3) внесем изменения в mysite/settings.py, добавив после from pathlib import Path:
- import os, sysPROJECT_ROOT = os.path.dirname(__file__)sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
+3) внесем изменения в mysite/settings.py, 
+
+--== добавив после from pathlib import Path: ==-- import os, sysPROJECT_ROOT = os.path.dirname(__file__)sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
+
+--== и чуть ниже - дописать 'blog' ==--
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',
+]
+
 4) проверим (см. п. 11)
 5) если все ок, заливаем на гит:
 5.1) меняем директорию на корневую
@@ -105,3 +118,44 @@ git commit -am "Add apps directory"
 git push KGU_Web_Project_django master
 6) еще раз запускаем (п. 11) 
 
+---=== Занятие 05.12.2020 ===---
+1. создали  second:
+1) --== mysite/apps/blog/urls.py ==--
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('second', views.second, name='second'),
+]
+2) --== mysite/apps/blog/views.py ==--
+def second(request) :
+    return HttpResponse("Это тоже работает!")
+
+3) теперь запускаем сервер и проверяем по адресу 
+http://127.0.0.1:8000/blog/second
+
+2. models.py, описываем бд: 
+class Article(models.Model):
+    title = models.CharField('Article title', max_length=120)
+    body = models.TextField('Text')
+    date = models.DateTimeField('Date of publication')
+class Comment(models.Model):
+    # для связи с конкретной статьёй
+    # если статья удаляется, то удаляются и комментарии к ней
+    article = models.ForeignKey(Article, on_delete=models.CASCADE) 
+    author = models.CharField('Author,s name', max_length=30)
+    comment_text = models.CharField('Text of comment', max_length=220)
+
+3. миграция
+python3 manage.py makemigrations
+python3 manage.py migrate  
+
+4. создание суперюзера
+python3 manage.py createsuperuser
+http://127.0.0.1:8000/admin/
+
+5. добавляем в admin.py
+from blog.models import Article, Comment
+admin.site.register(Article)
+admin.site.register(Comment)
+
+6. проверяем 
+http://127.0.0.1:8000/admin/
