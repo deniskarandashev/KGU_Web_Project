@@ -48,6 +48,7 @@ git clone https://github.com/schacon/ticgit
 
 
 Мои действия:
+ВНИМАНИЕ! Указаны команды для Mac OS, для Windows вместо python3 надо писать python 
 1. Создать папку проекта, назвать django_site
 2. cd /Users/sergey/Documents/Study/КГУ/django_site
 3. django-admin startproject mysite
@@ -150,7 +151,8 @@ python3 manage.py migrate
 
 4. создание суперюзера
 python3 manage.py createsuperuser
-http://127.0.0.1:8000/admin/
+Задаем логин и пароль (пароль не будет отображаться при наборе)
+http://127.0.0.1:8000/admin/ - заходим и вводим заданные логин и пароль
 
 5. добавляем в admin.py
 from blog.models import Article, Comment
@@ -159,3 +161,22 @@ admin.site.register(Comment)
 
 6. проверяем 
 http://127.0.0.1:8000/admin/
+
+пс
+проверка версии бд
+postgres --version
+
+
+изменения в аппсторе
+перезагрузка сервера
+миграция? нет
+
+меняем дизайн админки https://grappelliproject.com/
+pip3 install django-grappelli
+
+
+
+https://django-bootstrap4.readthedocs.io/en/latest/installation.html
+
+
+css beautifier
