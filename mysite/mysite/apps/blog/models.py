@@ -1,5 +1,14 @@
 from django.db import models
 
+class Post(models.Model):
+    title = models.CharField('Title of the note', max_length= 120)
+    body = models.TextField('Text of the note')
+    date = models.DateTimeField('Date of the publication') 
+    img = models.ImageField('Image')
+
+class Heading(models.Model):
+    title = models.CharField('Title of the note', max_length= 120)
+
 class Article(models.Model):
     title = models.CharField('название статьи', max_length= 120)
     body = models.TextField('текст статьи')
