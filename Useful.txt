@@ -235,3 +235,6 @@ settings.pu -> добавить os.path.join(PROJECT_ROOT, 'templates') в TEMPL
 
 шпаргалка по бутстрап4 https://bootstrap-4.ru/articles/cheatsheet/ 
 будем делать вывод статей на сайт
+
+полезно:
+test.html -> sift + ! + enter -> шаблон html

@@ -1,0 +1,9 @@
+{% extends "blog/wrapper.html" %} 
+{% block title %} {{ article.title }} {%endblock %} 
+
+{% block content %}
+<h2>{{ article.title }}</h2>
+<p>{{ article.body }}</p>
+<em>{{ article.data }}</em>
+
+{% endblock %}
