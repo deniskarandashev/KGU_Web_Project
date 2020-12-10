@@ -181,3 +181,57 @@ https://django-bootstrap4.readthedocs.io/en/latest/installation.html
 css beautifier
 
 python3 manage.py collectstatic
+
+
+==== чужой конспект:
+
+повторение
+
+1= создание 2х классов
+2= создание суперпользователя.
+
+3= vsc - apps.py -intercode := 0000 нафиг не надо
+
+4= vcs - (куда??? cllr\ccs models.py)  def __str__(self):        return self.title    class Meta:        verbose_name = 'Статья'        verbose_name_plural = 'Статьи'
+
+5= https://grappelliproject.com/    install with instruction
+
+6= install apps vsc add url for admin.py 
+
+   STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+
+7= create foulder папка какая то? statik
+
+8= установкаs css js. rar https://getbootstrap.com/
+
+9 = файл копируем в папку templates  + blog
+
+10 = wrapper.html и homepage.html
+
+11 = wrapper - шаблон вставка <!DOCTYPE html><html lang="en"><head>    {% load static %}    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" type="text/css">    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">    <title>Заголовок страницы</title></head><body style="background: silver">    {% block content %}    {% endblock %}    </body></html>
+
+12 = homepage {% extends "blog/wrapper.html" %}{% block content %}<h1>Проверка!</h1><div class="jumbotron">    <div class="container">    <p>    <a href="/" class="btn btn-success btn-lg">Главная страница</a>    <a href="/news" class="btn btn-primary btn-lg">Узнать больше &raquo; </a>    </p>    </div>    </div>    <div class="container">        <hr>    &copy; Все права защищены 2018    </div>{% endblock %}
+13 = settings.py    STATIC_URL = '/static/'STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+14 = https://django-bootstrap4.readthedocs.io/en/latest/installation.html
+
+15 = views.py def index(request) :    return render(request, 'blog/homepage.html', )
+
+16 = css beautifier делает код красивым
+
+17 = продумать html сайт 
+
+=============================================================
+              ---=== Занятие 10.12.2020 ===---
+
+перемещаем папку templates в папку myproject
+
+settings.pu -> добавить os.path.join(PROJECT_ROOT, 'templates') в TEMPLATES => DIRS
+		os.path.join(PROJECT_ROOT, 'templates') 
+проверяем чтобы было также:
+	STATIC_URL = '/static/'	STATIC_DIR = os.path.join(PROJECT_ROOT, 'static')	STATICFILES_DIRS = [STATIC_DIR]
+
+
+шпаргалка по бутстрап4 https://bootstrap-4.ru/articles/cheatsheet/ 
+будем делать вывод статей на сайт
