@@ -9,6 +9,9 @@ class Post(models.Model):
 class Heading(models.Model):
     title = models.CharField('Title of the note', max_length= 120)
 
+
+# созданы в учебных целях
+
 class Article(models.Model):
     title = models.CharField('название статьи', max_length= 120)
     body = models.TextField('текст статьи')
@@ -32,3 +35,31 @@ class Comment(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии' 
+
+
+# созданы для финального варианта
+
+class HeadArticle(models.Model):
+    title = models.CharField('title', max_length= 120)
+    body = models.TextField('text')
+    date = models.DateTimeField('date') 
+    price = models.DecimalField('price', max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Head Article'
+        verbose_name_plural = 'Head Articles'
+
+class OtherArticle(models.Model):
+    title = models.CharField('title', max_length= 120)
+    body = models.TextField('text')
+    date = models.DateTimeField('date') 
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Other Article'
+        verbose_name_plural = 'Other Articles'

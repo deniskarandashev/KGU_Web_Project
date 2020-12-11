@@ -21,3 +21,6 @@ def single(request, article_id):
     except:
         raise Http404("Article doesn't find")
     return render(request, 'blog/single.html', {'article': a})
+
+def payment(request):
+    return render(request, 'blog/payment.html', {})

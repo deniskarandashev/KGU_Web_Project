@@ -12,13 +12,13 @@
         <img
           src="../../../../../static/blog/images/buga.jpeg"
           class="bd-placeholder-img rounded-circle"
-          width="140"
-          height="140"
+          width="180"
+          height="180"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
           role="img"
-          aria-label="Placeholder: 140x140"
+          aria-label="Placeholder: 180x180"
         />
         <h2 class="text-warning">The most beautiful flower</h2>
         <p>
@@ -31,8 +31,7 @@
         <p>
           <a
             class="btn btn-warning"
-            href href="{% url 'blog:payment' i.id %}"
-            href="https://en.wikipedia.org/wiki/Bougainvillea"
+            href="{% url 'blog:payment' %}"
             role="button"
             >Buy it now &raquo;</a
           >
@@ -43,8 +42,8 @@
         <img
           src="../../../../../static/blog/images/ham.jpg"
           class="bd-placeholder-img rounded-circle"
-          width="140"
-          height="140"
+          width="180"
+          height="180"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
@@ -62,7 +61,7 @@
         <p>
           <a
             class="btn btn-warning"
-            href="https://en.wikipedia.org/wiki/Bougainvillea"
+            href="{% url 'blog:payment' %}"
             role="button"
             >Buy it now &raquo;</a
           >
@@ -73,8 +72,8 @@
         <img
           src="../../../../../static/blog/images/figa.jpg"
           class="bd-placeholder-img rounded-circle"
-          width="140"
-          height="140"
+          width="180"
+          height="180"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
@@ -83,16 +82,16 @@
         />
         <h2 class="text-warning">Tree from Arabian Tales</h2>
         <p>
-          Ficus carica is known as the common fig. It is the source of the fruit also
-          called the fig and as such is an important crop in those areas where
-          it is grown commercially. Native to the Mediterranean and western
-          Asia, it has been sought out and cultivated since ancient times and is
-          now widely grown throughout the world.
+          Ficus carica is known as the common fig. It is the source of the fruit
+          also called the fig and as such is an important crop in those areas
+          where it is grown commercially. Native to the Mediterranean and
+          western Asia, it has been sought out and cultivated since ancient
+          times and is now widely grown throughout the world.
         </p>
         <p>
           <a
             class="btn btn-warning"
-            href="https://en.wikipedia.org/wiki/Bougainvillea"
+            href="{% url 'blog:payment' %}"
             role="button"
             >Buy it now &raquo;</a
           >
@@ -106,31 +105,35 @@
     <div class="row featurette">
       <div class="col-md-7">
         <h2 class="featurette-heading">
-          First featurette heading.
+          Gülhane Park
           <span class="text-muted">It’ll blow your mind.</span>
         </h2>
         <p class="lead">
-          Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-          ligula porta felis euismod semper. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-        </p>
+          Gülhane Park (Turkish: Gülhane Parkı, "Rosehouse Park"; from Persian:
+          گلخانه Gulkhāna, "house of flowers") is a historical urban park in the
+          Eminönü district of Istanbul, Turkey; it is adjacent to and on the
+          grounds of the Topkapı Palace. The south entrance of the park sports
+          one of the larger gates of the palace. It is the oldest and one of the
+          most expansive public parks in Istanbul. 
+          <a class="text-decoration-none text-muted badge-pill" href="https://en.wikipedia.org/wiki/G%C3%BClhane_Park"> 
+            <b>Read more...</b>
+          </a>
+          </p>
       </div>
 
       <div class="col-md-5">
-        <svg
-          class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+        <img
+          src="../../../../../static/blog/images/tul.jpg"
           width="500"
           height="500"
-          xmlns="../../../../../static/blog/images/buga.jpeg"
           preserveAspectRatio="xMidYMid slice"
-          focusable="false"
+          focusable="true"
           role="img"
           aria-label="Placeholder: 500x500"
-        >
+        />
+      
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#eee" />
-          <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-        </svg>
       </div>
     </div>
 
@@ -139,29 +142,27 @@
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
         <h2 class="featurette-heading">
-          Oh yeah, it’s that good.
-          <span class="text-muted">See for yourself.</span>
+          Hanami 
+          <span class="text-muted">or "flower viewing".</span>
         </h2>
         <p class="lead">
-          Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-          ligula porta felis euismod semper. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          Hanami (花見, "flower viewing") is the Japanese traditional custom of enjoying the transient beauty of flowers; flowers ("hana") are in this case almost always referring to those of the cherry ("sakura") or, less frequently, plum ("ume") trees.[1] From the end of March to early May, cherry trees bloom all over Japan,[2] and around the first of February on the island of Okinawa.[3] The blossom forecast (桜前線, sakura-zensen) "cherry blossom front" is announced each year by the weather bureau, and is watched carefully by those planning hanami as the blossoms only last a week or two.
         </p>
       </div>
       <div class="col-md-5 order-md-1">
-        <svg
+        <img
+          src="../../../../../static/blog/images/japan.jpeg"
           class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
           width="500"
           height="500"
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="../../../../../static/blog/images/japan.jpeg"
           preserveAspectRatio="xMidYMid slice"
-          focusable="false"
+          focusable="true"
           role="img"
           aria-label="Placeholder: 500x500"
-        >
+        />
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#eee" />
-          <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
         </svg>
       </div>
     </div>
@@ -171,35 +172,38 @@
     <div class="row featurette">
       <div class="col-md-7">
         <h2 class="featurette-heading">
-          And lastly, this one. <span class="text-muted">Checkmate.</span>
+          And lastly, this one. <span class="text-muted">Dandelion.</span>
         </h2>
         <p class="lead">
-          Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-          ligula porta felis euismod semper. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          Dandelions are thought to have evolved about 30 million years ago in Eurasia. Fossil seeds of Taraxacum tanaiticum have been recorded from the Pliocene of southern Russia.[26] Dandelions have been used by humans for food and as an herb for much of recorded history. They were well known to ancient Egyptians, Greeks and Romans, and are recorded to have been used in traditional Chinese medicine for over a thousand years. The plant was used as food and medicine by Native Americans. Dandelions were brought to North America on the Mayflower for their medicinal benefits.
         </p>
       </div>
       <div class="col-md-5">
-        <svg
+        <img
+          src="../../../../../static/blog/images/bee.jpeg"
           class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
           width="500"
           height="500"
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="../../../../../static/blog/images/bee.jpeg"
           preserveAspectRatio="xMidYMid slice"
-          focusable="false"
+          focusable="true"
           role="img"
           aria-label="Placeholder: 500x500"
-        >
+        />
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#eee" />
-          <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
         </svg>
       </div>
     </div>
-    
+
     <!-- <hr class="featurette-divider" /> -->
 
     <!-- /END THE FEATURETTES -->
   </div>
 </main>
+<div class="container my-2 my-sm-3 my-lg-4 p-3">
+  <button type="button" class="btn btn-warning float-center">
+    <a class="text-dark text-decoration-none" href="#">Back to top</a>
+  </button>
+</div>
 {% endblock %}
