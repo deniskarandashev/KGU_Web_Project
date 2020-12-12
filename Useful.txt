@@ -238,3 +238,22 @@ settings.pu -> добавить os.path.join(PROJECT_ROOT, 'templates') в TEMPL
 
 полезно:
 test.html -> sift + ! + enter -> шаблон html
+
+=============================================================
+              ---=== Занятие 12.12.2020 ===---
+
+подключение PostgreSQL
+======= БЫЛО
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+======= СТАЛО
+'ENGINE': 'django.db.backends.postgresql_psycopg2',        'NAME': 'db_blog',        'USER' : 'posgres',        'PASSWORD' : 'posgres',        'HOST' : '127.0.0.1',        'PORT' : '5432',
+
+pip3 install psycopg2
+
+python3 manage.py makemigrations
+python3 manage.py migrate  
