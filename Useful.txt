@@ -271,3 +271,21 @@ pip3 install psycopg2-binary
 
 python3 manage.py makemigrations
 python3 manage.py migrate  
+
+Авторизация, инструкция:
+https://django-allauth.readthedocs.io/en/latest/installation.html
+!!! при добавлении настроек следить за тем, чтобы не добавить уже существующую
+http://localhost:8001/accounts/login/ - проверить
+
+settings.py
+# редирект после авторизации
+LOGIN_REDIRECT_URL = '/'
+# редирект для авторизации
+LOGIN_URL = '/accounts/login/'
+# чтобы не получать уведомления на почту, потом можно изменить
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+для изменения внешнего вида страницы регистрации скачать account.zip
+распаковать, переместить в templates
+в login.html - {% extends "../blog/wrapper.html" %} (если не заработает)
+
