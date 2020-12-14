@@ -39,11 +39,12 @@ class Comment(models.Model):
 
 # созданы для финального варианта
 
-class HeadArticle(models.Model):
+class PlantsForSale(models.Model):
     title = models.CharField('title', max_length= 120)
-    body = models.TextField('text')
+    body = models.TextField('body')
     date = models.DateTimeField('date') 
     price = models.DecimalField('price', max_digits=6, decimal_places=2)
+    image = models.ImageField(upload_to="images")
 
     def __str__(self):
         return self.title
@@ -52,14 +53,25 @@ class HeadArticle(models.Model):
         verbose_name = 'Head Article'
         verbose_name_plural = 'Head Articles'
 
-class OtherArticle(models.Model):
-    title = models.CharField('title', max_length= 120)
+class InfoArticle(models.Model):
+    title1 = models.CharField('title1', max_length= 120)
+    title2 = models.CharField('title2', max_length= 120)
     body = models.TextField('text')
     date = models.DateTimeField('date') 
+    image = models.ImageField(upload_to="images")
 
     def __str__(self):
-        return self.title
+        return self.title1
 
     class Meta:
         verbose_name = 'Other Article'
         verbose_name_plural = 'Other Articles'
+
+class City(models.Model):
+    name = models.CharField(max_length=25)
+
+    def _str_(self): #show the actual city name on the dashboard
+        return self.name
+
+    class Meta: #show the plural of city as cities instead of citys
+        verbose_name_plural = 'cities'

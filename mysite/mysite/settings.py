@@ -140,12 +140,13 @@ USE_TZ = True
 SITE_ID = 1
 
 # редирект после авторизации
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/main/'
 # редирект для авторизации
 LOGIN_URL = '/accounts/login/'
 # чтобы не получать уведомления на почту, потом можно изменить
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+LOGOUT_REDIRECT_URL = '/main/'
+LOGOUT_URL = '/accounts/logout/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -155,3 +156,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = ( os.path.join('static'), )
 #STATICFILES_DIRS = ( PROJECT_ROOT, 'static' )  # так у преподавателя
 STATIC_ROOT = ''
+
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')

@@ -23,4 +23,6 @@ urlpatterns = [
     path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('main/', views.main, name='main'),
     path('accounts/', include('allauth.urls')),
-]
+    path('blog/templates/account/', include(('blog.urls', 'account'), namespace='account')),
+    path('', views.main),
+] 
