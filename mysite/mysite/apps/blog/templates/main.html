@@ -1,26 +1,32 @@
 {% extends "blog/wrapper.html" %} {% block content %} {% load static %}
 
-<link
-  rel="stylesheet"
-  href="{% static 'blog/css/bootstrap.min.css'%}"
-  type="text/css"
-/>
+<link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css'%}" type="text/css" />
 <main role="main">
   <div class="container marketing mx-auto my-2 my-sm-3 my-lg-4 p-3">
     <!-- Three columns of text below the carousel -->
+
+    {% block content_sale %}
+
+    <h1>All articles</h1>
+
+    {% if list_plantsforsale %}
+    Успешно!
+    {% for i in list_plantsforsale %}
+    <div>
+      <a href="{% url 'blog:firstblock' i.id %}">{{ i.title }}</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    There is no article
+    {% endif %}
+
+    {% endblock %}
+    
     <div class="row">
       <div class="col-lg-4">
-        <img
-          src="../../../../../static/blog/images/buga.jpeg"
-          class="bd-placeholder-img rounded-circle"
-          width="180"
-          height="180"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="false"
-          role="img"
-          aria-label="Placeholder: 180x180"
-        />
+        <img src="../../../../../static/blog/images/buga.jpeg" class="bd-placeholder-img rounded-circle" width="180"
+          height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+          role="img" aria-label="Placeholder: 180x180" />
         <h2 class="text-warning">The most beautiful flower</h2>
         <p>
           Bougainvillea is a genus of thorny ornamental vines, bushes, or trees.
@@ -30,27 +36,14 @@
           sepal-like bracts which surround three simple waxy flowers.
         </p>
         <p>
-          <a
-            class="btn btn-warning"
-            href="{% url 'blog:payment' %}"
-            role="button"
-            >Buy it now &raquo;</a
-          >
+          <a class="btn btn-warning" href="{% url 'blog:payment' %}" role="button">Buy it now &raquo;</a>
         </p>
       </div>
       <!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img
-          src="../../../../../static/blog/images/ham.jpg"
-          class="bd-placeholder-img rounded-circle"
-          width="180"
-          height="180"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="false"
-          role="img"
-          aria-label="Placeholder: 140x140"
-        />
+        <img src="../../../../../static/blog/images/ham.jpg" class="bd-placeholder-img rounded-circle" width="180"
+          height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+          role="img" aria-label="Placeholder: 140x140" />
         <h2 class="text-warning">Your own home palm</h2>
         <p>
           Chamaedorea is a genus of 107 species of palms, native to subtropical
@@ -60,27 +53,14 @@
           of underground runners, forming clonal colonies.
         </p>
         <p>
-          <a
-            class="btn btn-warning"
-            href="{% url 'blog:payment' %}"
-            role="button"
-            >Buy it now &raquo;</a
-          >
+          <a class="btn btn-warning" href="{% url 'blog:payment' %}" role="button">Buy it now &raquo;</a>
         </p>
       </div>
       <!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img
-          src="../../../../../static/blog/images/figa.jpg"
-          class="bd-placeholder-img rounded-circle"
-          width="180"
-          height="180"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="false"
-          role="img"
-          aria-label="Placeholder: 140x140"
-        />
+        <img src="../../../../../static/blog/images/figa.jpg" class="bd-placeholder-img rounded-circle" width="180"
+          height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+          role="img" aria-label="Placeholder: 140x140" />
         <h2 class="text-warning">Tree from Arabian Tales</h2>
         <p>
           Ficus carica is known as the common fig. It is the source of the fruit
@@ -90,12 +70,7 @@
           times and is now widely grown throughout the world.
         </p>
         <p>
-          <a
-            class="btn btn-warning"
-            href="{% url 'blog:payment' %}"
-            role="button"
-            >Buy it now &raquo;</a
-          >
+          <a class="btn btn-warning" href="{% url 'blog:payment' %}" role="button">Buy it now &raquo;</a>
         </p>
       </div>
       <!-- /.col-lg-4 -->
@@ -104,7 +79,7 @@
     <!-- START THE FEATURETTES -->
     <!-- <hr class="featurette-divider" /> -->
 
-  <!--
+    <!--
     {% block child_content %}
     {% block subtitle %} {{ plantsforsale.title }} {%endblock %}
     {% if list_plantsforsale %}
@@ -120,7 +95,7 @@
     {% endblock child_content %}
   -->
 
-    
+
     <div class="row featurette">
       <div class="col-md-7">
         <h2 class="featurette-heading">
@@ -133,26 +108,19 @@
           Eminönü district of Istanbul, Turkey; it is adjacent to and on the
           grounds of the Topkapı Palace. The south entrance of the park sports
           one of the larger gates of the palace. It is the oldest and one of the
-          most expansive public parks in Istanbul. 
-          <a class="text-decoration-none text-muted badge-pill" href="https://en.wikipedia.org/wiki/G%C3%BClhane_Park"> 
+          most expansive public parks in Istanbul.
+          <a class="text-decoration-none text-muted badge-pill" href="https://en.wikipedia.org/wiki/G%C3%BClhane_Park">
             <b>Read more...</b>
           </a>
-          </p>
+        </p>
       </div>
 
       <div class="col-md-5">
-        <img
-          src="../../../../../static/blog/images/tul.jpg"
-          width="500"
-          height="500"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="true"
-          role="img"
-          aria-label="Placeholder: 500x500"
-        />
-      
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#eee" />
+        <img src="../../../../../static/blog/images/tul.jpg" width="500" height="500"
+          preserveAspectRatio="xMidYMid slice" focusable="true" role="img" aria-label="Placeholder: 500x500" />
+
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#eee" />
       </div>
     </div>
 
@@ -161,27 +129,25 @@
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
         <h2 class="featurette-heading">
-          Hanami 
+          Hanami
           <span class="text-muted">or "flower viewing".</span>
         </h2>
         <p class="lead">
-          Hanami (花見, "flower viewing") is the Japanese traditional custom of enjoying the transient beauty of flowers; flowers ("hana") are in this case almost always referring to those of the cherry ("sakura") or, less frequently, plum ("ume") trees.[1] From the end of March to early May, cherry trees bloom all over Japan,[2] and around the first of February on the island of Okinawa.[3] The blossom forecast (桜前線, sakura-zensen) "cherry blossom front" is announced each year by the weather bureau, and is watched carefully by those planning hanami as the blossoms only last a week or two.
+          Hanami (花見, "flower viewing") is the Japanese traditional custom of enjoying the transient beauty of flowers;
+          flowers ("hana") are in this case almost always referring to those of the cherry ("sakura") or, less
+          frequently, plum ("ume") trees.[1] From the end of March to early May, cherry trees bloom all over Japan,[2]
+          and around the first of February on the island of Okinawa.[3] The blossom forecast (桜前線, sakura-zensen)
+          "cherry blossom front" is announced each year by the weather bureau, and is watched carefully by those
+          planning hanami as the blossoms only last a week or two.
         </p>
       </div>
       <div class="col-md-5 order-md-1">
-        <img
-          src="../../../../../static/blog/images/japan.jpeg"
-          class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-          width="500"
-          height="500"
-          xmlns="../../../../../static/blog/images/japan.jpeg"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="true"
-          role="img"
-          aria-label="Placeholder: 500x500"
-        />
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#eee" />
+        <img src="../../../../../static/blog/images/japan.jpeg"
+          class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"
+          xmlns="../../../../../static/blog/images/japan.jpeg" preserveAspectRatio="xMidYMid slice" focusable="true"
+          role="img" aria-label="Placeholder: 500x500" />
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#eee" />
         </svg>
       </div>
     </div>
@@ -194,23 +160,21 @@
           And lastly, this one. <span class="text-muted">Dandelion.</span>
         </h2>
         <p class="lead">
-          Dandelions are thought to have evolved about 30 million years ago in Eurasia. Fossil seeds of Taraxacum tanaiticum have been recorded from the Pliocene of southern Russia.[26] Dandelions have been used by humans for food and as an herb for much of recorded history. They were well known to ancient Egyptians, Greeks and Romans, and are recorded to have been used in traditional Chinese medicine for over a thousand years. The plant was used as food and medicine by Native Americans. Dandelions were brought to North America on the Mayflower for their medicinal benefits.
+          Dandelions are thought to have evolved about 30 million years ago in Eurasia. Fossil seeds of Taraxacum
+          tanaiticum have been recorded from the Pliocene of southern Russia.[26] Dandelions have been used by humans
+          for food and as an herb for much of recorded history. They were well known to ancient Egyptians, Greeks and
+          Romans, and are recorded to have been used in traditional Chinese medicine for over a thousand years. The
+          plant was used as food and medicine by Native Americans. Dandelions were brought to North America on the
+          Mayflower for their medicinal benefits.
         </p>
       </div>
       <div class="col-md-5">
-        <img
-          src="../../../../../static/blog/images/bee.jpeg"
-          class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-          width="500"
-          height="500"
-          xmlns="../../../../../static/blog/images/bee.jpeg"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="true"
-          role="img"
-          aria-label="Placeholder: 500x500"
-        />
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#eee" />
+        <img src="../../../../../static/blog/images/bee.jpeg"
+          class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"
+          xmlns="../../../../../static/blog/images/bee.jpeg" preserveAspectRatio="xMidYMid slice" focusable="true"
+          role="img" aria-label="Placeholder: 500x500" />
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#eee" />
         </svg>
       </div>
     </div>

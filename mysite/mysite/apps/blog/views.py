@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from blog.models import Article, PlantsForSale, City
 from django.http import Http404, HttpResponseRedirect
+from django.views.generic.list import ListView
 import requests
 
 # Create your views here.
@@ -27,12 +28,13 @@ def main(request):
     list_plantsforsale = PlantsForSale.objects.order_by('-date')
     return render(request, './main.html', {'list_plantsforsale': list_plantsforsale} ) 
 
-def plantsforsale(request, plantsforsale_id):
+
+def firstblock(request, plantsforsale_id):
     try:
-        p = PlantsForSale.objects.get(id = plantsforsale_id)
+        i = PlantsForSale.objects.get(id = plantsforsale_id)
     except:
         raise Http404("Article doesn't find")
-    return render(request, {'plantsforsale': p})
+    return render(request, 'blog/firstblock.html', {'plantsforsale': i})
 
 def payment(request):
     return render(request, 'blog/payment.html', {})
@@ -42,18 +44,3 @@ def login(request):
 
 def logout(request):
     return render(request, 'account/logout.html', {})
-
-def main2(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=YOUR_APP_KEY'
-    cities = City.objects.all() 
-    city_weather = requests.get(url.format(city)).json()
-
-    weather = {
-        'city' : city,
-        'temperature' : city_weather['main']['temp'],
-        'description' : city_weather['weather'][0]['description'],
-        'icon' : city_weather['weather'][0]['icon']
-    }
-    context = {'weather' : weather}
-
-    return render(request, './main2.html', context) 
